@@ -1,0 +1,12 @@
+{
+  "id": "guest-composer",
+  "title": "Guest Composer",
+  "version": "1.0.0",
+  "frontend": {
+    "forum": {
+      "js": [
+        "js/dist/forum.js"
+      ]
+    }
+  }
+}

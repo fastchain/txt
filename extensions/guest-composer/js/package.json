@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "guest-composer",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "flarum-webpack-config": "^2.0.2",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

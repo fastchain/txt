@@ -1,0 +1,20 @@
+{
+  "name": "yours/guest-composer",
+  "description": "Enable full composer for guests (new discussion + reply)",
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yours\\GuestComposer\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Guest Composer",
+      "category": "feature"
+    }
+  }
+}
