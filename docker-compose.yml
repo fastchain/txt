@@ -1,0 +1,81 @@
+
+services:
+  flarum:
+    image: flarum
+    #image: mondedie/flarum:stable
+    build: .
+    container_name: flarum
+    env_file:
+      - ./flarum/flarum.env
+    volumes:
+      - ./flarum/assets:/flarum/app/public/assets
+      - ./flarum/extensions:/flarum/app/extensions
+      - ./flarum/storage/logs:/flarum/app/storage/logs
+      - ./flarum/nginx:/etc/nginx/flarum
+      #- ./flarum_app:/flarum/app
+      - ./extensions:/extensions
+    #ports:
+    #  - 80:8888
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=xxxxxxxxxx
+      - MYSQL_DATABASE=flarum
+      - MYSQL_USER=flarum
+      - MYSQL_PASSWORD=xxxxxxxxxx
+    volumes:
+      - ./flarum/mysql/db:/var/lib/mysql
+
+#  parser:
+#    build: ./parsers
+#    container_name: flarum_parser
+#    volumes:
+#      - ./parsers:/parsers
+#    restart: unless-stopped
+#    command: python /parsers/src/2ch.parser.py
+
+#  boards_loader:
+#    build: ./parsers
+#    container_name: flarum_boards_loader
+#    volumes:
+#      - ./parsers:/parsers
+#    restart: unless-stopped
+#    command: python /parsers/src/sosachb.py
+
+  poster:
+    build: ./parsers
+    container_name: flarum_poster
+    volumes:
+      - ./parsers:/parsers
+    restart: unless-stopped
+    command: python /parsers/src/poster.py
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - flarum
+      - poster
+
+  postgres:
+    container_name: postgres_parserl
+    image: postgres:17
+    #hostname: localhost
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: parser
+      POSTGRES_PASSWORD: parser
+      POSTGRES_DB: parser
+      MAX_CLIENT_CONN: "200000"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    #restart: unless-stopped
+
