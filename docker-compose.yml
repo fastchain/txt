@@ -64,18 +64,18 @@ services:
 #      - flarum
 #      - poster
 
-  postgres:
-    container_name: postgres_parserl
-    image: postgres:17
-    #hostname: localhost
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: parser
-      POSTGRES_PASSWORD: parser
-      POSTGRES_DB: parser
-      MAX_CLIENT_CONN: "200000"
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
-    #restart: unless-stopped
+#  postgres:
+#    container_name: postgres_parserl
+#    image: postgres:17
+#    #hostname: localhost
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: parser
+#      POSTGRES_PASSWORD: parser
+#      POSTGRES_DB: parser
+#      MAX_CLIENT_CONN: "200000"
+#    volumes:
+#      - ./postgres-data:/var/lib/postgresql/data
+#    #restart: unless-stopped
 
