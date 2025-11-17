@@ -30,7 +30,7 @@ from sosachb import TwoChannelClient as sosachb
 BASE_URL = os.getenv("UPSTREAM_BASE_URL", "http://flarum:8888/").rstrip("/")
 #BASE_URL = os.getenv("UPSTREAM_BASE_URL", "http://127.0.0.1/").rstrip("/")
 AUTH_USERNAME = os.getenv("AUTH_USERNAME", "admin")
-AUTH_PASSWORD = os.getenv("AUTH_PASSWORD", "xxxxxxxxxx")
+AUTH_PASSWORD = os.getenv("AUTH_PASSWORD", "rRGXx5t1yZNX1JQ")
 #CSRF_INIT_PATH = os.getenv("CSRF_INIT_PATH", "http://flarum:8888/")
 #CSRF_INIT_PATH = os.getenv("CSRF_INIT_PATH", "http://127.0.0.1:80/")
 FORWARD_PATH_POST = os.getenv("FORWARD_PATH_POST", "http://flarum:8888/api/posts")
@@ -86,8 +86,8 @@ def posts():
   import string
   anon_name = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
   client = sosachb()
-  client.login(username="admin",password="xxxxxxxxxx")
-  client.get_token(username="admin",password="xxxxxxxxxx")
+  client.login(username="admin",password="rRGXx5t1yZNX1JQ")
+  client.get_token(username="admin",password="rRGXx5t1yZNX1JQ")
   if  client.check_user_exists(anon_name) == 404:
     print("CREATING  USER:",anon_name, )#"PARENT:",(post.num))
     client.add_user(username=anon_name,password="correcthorsebatterystaple",email=anon_name+"@gmail.com")
@@ -136,8 +136,8 @@ def discussions():
   anon_name = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
   client = sosachb()
   #TODO use XCSRF token from client to login
-  client.login(username="admin",password="xxxxxxxxxx")
-  client.get_token(username="admin",password="xxxxxxxxxx")
+  client.login(username="admin",password="rRGXx5t1yZNX1JQ")
+  client.get_token(username="admin",password="rRGXx5t1yZNX1JQ")
   if  client.check_user_exists(anon_name) == 404:
     print("CREATING  USER:",anon_name, )#"PARENT:",(post.num))
     client.add_user(username=anon_name,password="correcthorsebatterystaple",email=anon_name+"@gmail.com")
