@@ -46,23 +46,23 @@ services:
 #    restart: unless-stopped
 #    command: python /parsers/src/sosachb.py
 
-#  poster:
-#    build: ./parsers
-#    container_name: flarum_poster
-#    volumes:
-#      - ./parsers:/parsers
-#    restart: unless-stopped
-#    command: python /parsers/src/poster.py
-#
-#  nginx:
-#    image: nginx:latest
-#    ports:
-#      - "80:80"
-#    volumes:
-#      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-#    depends_on:
-#      - flarum
-#      - poster
+  poster:
+    build: ./parsers
+    container_name: flarum_poster
+    volumes:
+      - ./parsers:/parsers
+    restart: unless-stopped
+    command: python /parsers/src/poster.py
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - flarum
+      - poster
 
 #  postgres:
 #    container_name: postgres_parserl
