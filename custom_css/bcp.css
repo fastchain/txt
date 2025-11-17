@@ -1,0 +1,107 @@
+/* Hide avatars everywhere */
+.Avatar {
+  display: none !important;
+}
+
+/* Optional: adjust layout so spacing looks better */
+.Post-header, .DiscussionListItem-content {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+/* Цвет обычных ссылок */
+a {
+  color:#FF6600;
+}
+
+
+
+
+/* цвет зернейма постера */
+
+.PostStream .Post .Post-header h3 a,
+.PostStream .Post .Post-header h3 a:link,
+.PostStream .Post .Post-header h3 a:visited,
+.PostStream .Post .PostUser .Username,
+.PostStream .Post .PostUser .username,
+.PostUser .Username,
+.PostUser .username,
+.Post-header .username a,
+.Post-header h3 a {
+  color: #77767b !important;               /* твой цвет */
+  font-family: "Roboto", "Arial", sans-serif !important; /* твой шрифт */
+  font-weight: 700;                         /* по желанию */
+}
+
+/* межстрочно в постах */
+.Post-body {
+  line-height: 1.2;        /* стандартно 1.5 — сделай больше/меньше по вкусу */
+  font-size: 16px;         /* можно подогнать размер шрифта */
+  font-family: "Roboto", "Arial", sans-serif; /* если хочешь другой шрифт */
+}
+
+/* (опционально) отступы между абзацами */
+.Post-body p {
+  margin-bottom: 1em;
+}
+
+
+/* посты */
+
+.PostStream .Post {
+  background-color: #DDD;  /* ← тут твой цвет фона */
+  /*color: #f5f5f5;              ← цвет текста внутри поста */
+  border-radius: 8px;         /* скругление углов (опционально) */
+  padding: 16px;              /* внутренние отступы */
+  margin-bottom: 10px;        /* расстояние между постами */
+  border: 1px solid #333;     /* рамка вокруг поста (можно убрать) */
+}
+
+
+
+/* Глобальный фон всего сайта */
+body {
+  background-color: #F0F0F0;    /* ← твой цвет фона */
+
+}
+
+
+/* список постов корневой */
+
+.DiscussionListItem {
+  background-color: #DDD;  /* фон как у постов */
+  color: #000111;             /* цвет текста */
+  border: 1px solid #333;     /* рамка */
+  border-radius: 8px;         /* скругление углов */
+  padding: 12px 16px;         /* внутренние отступы */
+  margin-bottom: 10px;        /* расстояние между карточками */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Текст выдержки (Synopsis) в карточках тем */
+.DiscussionListItem .item-excerpt,
+.DiscussionListItem .Synopsis-excerpt,
+.DiscussionListItem .DiscussionListItem-excerpt,
+.DiscussionListItem .Synopsis,
+.DiscussionListItem .PostSummary,          /* на всякий случай под разные версии/темы */
+.DiscussionListItem .excerpt {
+  color: #000111 !important;   /* сделай светлее/темнее по вкусу */
+  line-height: 1.2;
+  font-size: 14px;
+}
+
+
+
+/* Скрыть кнопку создания темы в шапке/на главной
+.item-newDiscussion,
+.Header-controls .Button--newDiscussion,
+.IndexPage .Button--newDiscussion,
+.App-primaryControl .Button--newDiscussion {
+  display: none !important;
+}
+*/
+
+/* показать кнопку Reply гостям, если тема прячет */
+.item-reply .Button { display: inline-flex !important; opacity: 1 !important; pointer-events: auto !important; }
+
